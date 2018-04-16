@@ -1,6 +1,7 @@
 import java.awt.Dimension;
 import java.awt.event.ActionEvent;
 import java.awt.event.ActionListener;
+import java.awt.Color;
 
 import javax.swing.*;
 
@@ -15,27 +16,27 @@ public class GUIDemo extends JFrame
     private JPanel panel;
     private JButton biggerButton;
     private JButton smallerButton;
-    private JButton mediumButton;
+    private JButton changeName;
 
     /**
      * Set up the application.
      */
     public GUIDemo()
     {
-	    setTitle("Bigger/Medium/Smaller");
+	    setTitle("Bigger/Smaller");
         setSize(300, 100);
         setDefaultCloseOperation(JFrame.EXIT_ON_CLOSE);
         panel = new JPanel();
         biggerButton = new JButton("BIGGER");
         smallerButton = new JButton("SMALLER");
-        mediumButton = new JButton("MEDIUM");
+        changeName = new JButton("Change Name");
         biggerButton.addActionListener(new ButtonHandler());
         smallerButton.addActionListener(new ButtonHandler());
-        mediumButton.addActionListener(new ButtonHandler());
+        changeName.addActionListener(new ButtonHandler());
         add(panel);
         panel.add(biggerButton);
         panel.add(smallerButton);
-        panel.add(mediumButton);
+        panel.add(changeName);
         setVisible(true);
     }
 
@@ -57,8 +58,8 @@ public class GUIDemo extends JFrame
             {
                 setSize(size.width + 10, size.height + 10);
             }
-            if (e.getSource().equals(mediumButton)) {
-                setSize(size.width + 6, size.height + 6);
+            if (e.getSource().equals(changeName)) {
+                setTitle("New Name");
             }
             else
             {
